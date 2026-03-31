@@ -29,30 +29,71 @@ LIMIT 1;
     </question>
 
     <question id="2">
-        <answer></answer>
+        <answer>2</answer>
         <sql>
-          <![CDATA[   your SQL ;   ]]>
+          <![CDATA[
+            SELECT COUNT(*)
+FROM (
+    SELECT movieid
+    FROM imdb.movies2directors
+    GROUP BY movieid
+    HAVING COUNT(directorid) > 7
+) sub;
+]]>
         </sql>
     </question>
 
     <question id="3">
-        <answer></answer>
+        <answer>1940</answer>
         <sql>
-          <![CDATA[   your SQL ;   ]]>
+          <![CDATA[
+            SELECT m.year
+FROM imdb.movies m
+JOIN imdb.movies2directors md ON m.movieid = md.movieid
+GROUP BY m.movieid, m.year
+ORDER BY COUNT(md.directorid) DESC
+LIMIT 1;
+]]>
         </sql>
     </question>
 
     <question id="4">
-        <answer></answer>
+        <answer>2500324</answer>
         <sql>
-          <![CDATA[   your SQL ;   ]]>
+          <![CDATA[
+SELECT ma2.actorid
+FROM imdb.actors a
+JOIN imdb.movies2actors ma1 ON a.actorid = ma1.actorid
+JOIN imdb.movies2actors ma2 ON ma1.movieid = ma2.movieid
+WHERE a.name = 'Hanks, Tom'
+  AND ma2.actorid != ma1.actorid
+GROUP BY ma2.actorid
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+]]>
         </sql>
     </question>
 
     <question id="5">
-        <answer></answer>
+        <answer>3</answer>
         <sql>
-          <![CDATA[   your SQL ;   ]]>
+          <![CDATA[
+        WITH pairs AS (
+    SELECT ma1.actorid AS actor_a, ma2.actorid AS actor_b
+    FROM imdb.movies2actors ma1
+    JOIN imdb.movies2actors ma2
+        ON ma1.movieid = ma2.movieid
+        AND ma1.actorid < ma2.actorid
+    GROUP BY ma1.actorid, ma2.actorid
+    HAVING COUNT(*) > 10
+)
+SELECT COUNT(DISTINCT actorid)
+FROM (
+    SELECT actor_a AS actorid FROM pairs
+    UNION
+    SELECT actor_b AS actorid FROM pairs
+) all_actors;
+]]>
         </sql>
     </question>
 
