@@ -124,28 +124,14 @@ WHERE NULLIF(md.genre, '') IS NULL;
         </sql>
     </question>
 
-    <question id="8">
-       <answer>302</answer>
+     <question id="8">
+        <answer></answer>
         <sql>
-          <![CDATA[
-            SELECT COUNT(DISTINCT m.movieid)
-FROM imdb.movies m
-JOIN imdb.movies2directors md ON m.movieid = md.movieid
-JOIN imdb.directors d        ON md.directorid = d.directorid
-JOIN imdb.movies2writers mw  ON m.movieid = mw.movieid
-JOIN imdb.writers w          ON mw.writerid = w.writerid AND w.name = d.name
-JOIN imdb.actors a           ON a.name = d.name
-WHERE NOT EXISTS (
-    SELECT 1
-    FROM imdb.movies2actors ma
-    JOIN imdb.actors act ON ma.actorid = act.actorid
-    WHERE ma.movieid = m.movieid
-      AND act.name = d.name
-);
-]]>
+          <![CDATA[   your SQL ;   ]]>
         </sql>
     </question>
 
+    
     <question id="9">
         <answer>54501</answer>
         <sql>
