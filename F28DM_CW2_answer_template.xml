@@ -29,12 +29,8 @@ LIMIT 1;]]>
     <question id="2">
         <answer>2</answer>
         <sql>
-          <![CDATA[SELECT COUNT(*)
-FROM (
-    SELECT movieid
-    FROM imdb.movies2directors
-    GROUP BY movieid
-    HAVING COUNT(directorid) > 7
+          <![CDATA[
+            SELECT COUNT(*)FROM ( SELECT movieid FROM imdb.movies2directors GROUP BY movieid HAVING COUNT(directorid) > 7);
 )  ]]>
         </sql>
     </question>
