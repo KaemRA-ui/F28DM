@@ -124,14 +124,7 @@ WHERE NULLIF(md.genre, '') IS NULL;
         </sql>
     </question>
 
-     <question id="8">
-        <answer></answer>
-        <sql>
-          <![CDATA[   your SQL ;   ]]>
-        </sql>
-    </question>
-
-    
+     
     <question id="9">
         <answer>54501</answer>
         <sql>
