@@ -36,9 +36,11 @@ LIMIT 1;]]>
     </question>
 
     <question id="3">
-        <answer></answer>
+        <answer>1940</answer>
         <sql>
-          <![CDATA[   your SQL ;   ]]>
+          <![CDATA[ 
+            SELECT m.year FROM imdb.movies m JOIN imdb.movies2directors md ON m.movieid = md.movieid GROUP BY m.movieid, m.year ORDER BY COUNT(md.directorid) DESC LIMIT 1;
+            ]]>
         </sql>
     </question>
 
