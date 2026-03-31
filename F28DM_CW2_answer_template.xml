@@ -125,7 +125,7 @@ WHERE NULLIF(md.genre, '') IS NULL;
     </question>
 
     <question id="8">
-        <answer><302/answer>
+        <answer>302</answer>
         <sql>
           <![CDATA[
             SELECT COUNT(DISTINCT m.movieid)
