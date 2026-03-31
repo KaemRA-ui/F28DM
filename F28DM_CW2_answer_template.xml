@@ -308,7 +308,7 @@
     </question>
  
     <question id="18">
-        <answer>1.1830</answer>
+        <answer>1.1830428059330729</answer>
         <sql>
           <![CDATA[
             SELECT AVG(spd)
