@@ -19,10 +19,9 @@
     <question id="1">
         <answer>Hamlet (1907)</answer>
         <sql>
-            <![CDATA[SELECT title
-FROM imdb.movies
-ORDER BY year ASC
-LIMIT 1;]]>
+            <![CDATA[
+            SELECT title FROM imdb.movies ORDER BY year ASC LIMIT 1;
+            ]]>
         </sql>
     </question>
 
@@ -31,7 +30,7 @@ LIMIT 1;]]>
         <sql>
           <![CDATA[
             SELECT COUNT(*)FROM ( SELECT movieid FROM imdb.movies2directors GROUP BY movieid HAVING COUNT(directorid) > 7);
-)  ]]>
+            ]]>
         </sql>
     </question>
 
