@@ -17,9 +17,14 @@
 <!--START OF YOUR ANSWERS and SQL STATEMENTS-->
 
     <question id="1">
-        <answer></answer>
+        <answer>Hamlet (1907)</answer>
         <sql>
-            <![CDATA[   your SQL ;   ]]>
+            <![CDATA[
+            SELECT title
+FROM imdb.movies
+ORDER BY year ASC
+LIMIT 1;
+]]>
         </sql>
     </question>
 
