@@ -19,81 +19,38 @@
     <question id="1">
         <answer>Hamlet (1907)</answer>
         <sql>
-            <![CDATA[
-            SELECT title
+            <![CDATA[SELECT title
 FROM imdb.movies
 ORDER BY year ASC
-LIMIT 1;
-]]>
+LIMIT 1;]]>
         </sql>
     </question>
 
     <question id="2">
-        <answer>2</answer>
+        <answer></answer>
         <sql>
-          <![CDATA[
-            SELECT COUNT(*)
-FROM (
-    SELECT movieid
-    FROM imdb.movies2directors
-    GROUP BY movieid
-    HAVING COUNT(directorid) > 7
-)
-]]>
+          <![CDATA[   your SQL ;   ]]>
         </sql>
     </question>
 
     <question id="3">
-        <answer>1940</answer>
+        <answer></answer>
         <sql>
-          <![CDATA[
-            SELECT m.year
-FROM imdb.movies m
-JOIN imdb.movies2directors md ON m.movieid = md.movieid
-GROUP BY m.movieid, m.year
-ORDER BY COUNT(md.directorid) DESC
-LIMIT 1;
-]]>
+          <![CDATA[   your SQL ;   ]]>
         </sql>
     </question>
 
     <question id="4">
-        <answer>2500324</answer>
+        <answer></answer>
         <sql>
-          <![CDATA[
-SELECT ma2.actorid
-FROM imdb.actors a
-JOIN imdb.movies2actors ma1 ON a.actorid = ma1.actorid
-JOIN imdb.movies2actors ma2 ON ma1.movieid = ma2.movieid
-WHERE a.name = 'Hanks, Tom'
-  AND ma2.actorid != ma1.actorid
-GROUP BY ma2.actorid
-ORDER BY COUNT(*) DESC
-LIMIT 1;
-]]>
+          <![CDATA[   your SQL ;   ]]>
         </sql>
     </question>
 
     <question id="5">
-        <answer>3</answer>
+        <answer></answer>
         <sql>
-          <![CDATA[
-        WITH pairs AS (
-    SELECT ma1.actorid AS actor_a, ma2.actorid AS actor_b
-    FROM imdb.movies2actors ma1
-    JOIN imdb.movies2actors ma2
-        ON ma1.movieid = ma2.movieid
-        AND ma1.actorid < ma2.actorid
-    GROUP BY ma1.actorid, ma2.actorid
-    HAVING COUNT(*) > 10
-)
-SELECT COUNT(DISTINCT actorid)
-FROM (
-    SELECT actor_a AS actorid FROM pairs
-    UNION
-    SELECT actor_b AS actorid FROM pairs
-) all_actors;
-]]>
+          <![CDATA[   your SQL ;   ]]>
         </sql>
     </question>
 
