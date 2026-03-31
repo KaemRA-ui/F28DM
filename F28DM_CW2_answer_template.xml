@@ -363,7 +363,7 @@
     </question>
  
     <question id="21">
-        <answer>952.44</answer>
+        <answer>952.4400482375495</answer>
         <sql>
           <![CDATA[
             SELECT ST_Length(ST_MakeLine(geom ORDER BY datetime)::geography)
